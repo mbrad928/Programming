@@ -30,10 +30,10 @@ public class BoundedPriorityQueue<T> {
             } else { //need to check incoming priority and maxPriority
                 if (priority < maxPriority) {
                     //insert and remove max
-                    insert(element,priority);
+                    insert(element, priority);
                     QueueNode<T> max = maxNode();
                     heap.remove(max);
-                    currSize-=1;
+                    currSize -= 1;
                     maxPriority = maxNode().priority;
                 }
                 //otherwise nothing changes
@@ -51,14 +51,14 @@ public class BoundedPriorityQueue<T> {
         if (currSize > 1) {
             for (int i = heap.size() - 1; i > 0; i--) {
                 QueueNode<T> currNode = heap.get(i);
-                QueueNode<T> parent = heap.get(parent(i));
+                QueueNode<T> parent = parent(i);
                 if (currNode.priority < parent.priority) {
                     //bubble up
                     //remove and reinsert element
                     heap.remove(currNode);
                     heap.remove(parent);
+                    heap.add((i-1)/2, currNode);
                     heap.add(i, parent);
-                    heap.add(parent(i), currNode);
                 } else {
                     break;
                 }
@@ -69,6 +69,7 @@ public class BoundedPriorityQueue<T> {
     public T dequeue(){
         if(currSize > 0){
             //remove min, then take last key and put at top then percolate down
+            QueueNode<T> toR = heap.get(0);
             heap.remove(0);
             currSize -= 1;
             QueueNode<T> last = heap.get(heap.size()-1);
@@ -78,40 +79,41 @@ public class BoundedPriorityQueue<T> {
             if(currSize > 0) {
                 for (int i = 0; i < heap.size(); i++) {
                     QueueNode<T> currNode = heap.get(i);
-                    QueueNode<T> leftChild = heap.get(leftChild(i));
-                    QueueNode<T> rightChild = heap.get(rightChild(i));
-                    if(currNode.priority < leftChild.priority && currNode.priority < rightChild.priority) {
+                    QueueNode<T> leftChild = leftChild(i);
+                    QueueNode<T> rightChild = rightChild(i);
+                    if(leftChild!=null && rightChild!=null && currNode.priority < leftChild.priority && currNode.priority < rightChild.priority) {
                         break; //already min
-                    } else if(currNode.priority > leftChild.priority && currNode.priority > rightChild.priority){
+                    } else if(leftChild!=null && rightChild!=null && currNode.priority > leftChild.priority && currNode.priority > rightChild.priority){
                         //pick the smaller priority
                         if(leftChild.priority < rightChild.priority) {
                             //switch with left child
                             heap.remove(currNode);
                             heap.remove(leftChild);
                             heap.add(i, leftChild);
-                            heap.add(leftChild(i),currNode);
+                            heap.add((2*i)+1,currNode);
                         } else {
                             //switch with right child
                             heap.remove(currNode);
                             heap.remove(rightChild);
                             heap.add(i, rightChild);
-                            heap.add(rightChild(i),currNode);
+                            heap.add((2*i)+2,currNode);
                         }
-                    } else if(currNode.priority > leftChild.priority) {
+                    } else if(leftChild!=null && currNode.priority > leftChild.priority) {
                         //switch with left child
                         heap.remove(currNode);
                         heap.remove(leftChild);
                         heap.add(i,leftChild);
-                        heap.add(leftChild(i),currNode);
-                    } else {
+                        heap.add((2*i)+1,currNode);
+                    } else if(rightChild!=null && currNode.priority > rightChild.priority){
                         //switch with right child
                         heap.remove(currNode);
                         heap.remove(rightChild);
                         heap.add(i, rightChild);
-                        heap.add(rightChild(i),currNode);
+                        heap.add((2*i)+1,currNode);//place it in left child slot tho
                     }
                 }
             }
+            return toR.key;
         }
         return null;
     }
@@ -123,8 +125,14 @@ public class BoundedPriorityQueue<T> {
     }
 
     public T last(){
-        if(currSize > 0)
-            return heap.get(heap.size()-1).key;
+        if(currSize > 0) {
+            QueueNode<T> maxNode = heap.get(0);
+            for (QueueNode<T> node : heap) {
+                if (node.priority > maxNode.priority)
+                    maxNode = node;
+            }
+            return maxNode.key;
+        }
         return null;
     }
 
@@ -151,7 +159,15 @@ public class BoundedPriorityQueue<T> {
     }
 
     public QueueNode<T> maxNode(){
-        return heap.get(heap.size()-1);
+        if(currSize > 0) {
+            QueueNode<T> maxNode = heap.get(0);
+            for (QueueNode<T> node : heap) {
+                if (node.priority > maxNode.priority)
+                    maxNode = node;
+            }
+            return maxNode;
+        }
+        return null;
     }
 
     public boolean containsPriority(double priority){
@@ -162,16 +178,30 @@ public class BoundedPriorityQueue<T> {
         return false;
     }
 
-    public int parent(int index){
-        return ((index-1)/2);
+    public QueueNode<T> parent(int index){
+        return heap.get(((index-1)/2));
     }
 
-    public int leftChild(int index){
-        return (2*index)+1;
+    public QueueNode<T> leftChild(int index){
+        QueueNode<T> node;
+        int idx = (2*index)+1;
+        try{
+            node = heap.get(idx);
+        } catch (Exception e){
+            return null;
+        }
+        return node;
     }
 
-    public int rightChild(int index){
-        return (2*index)+2;
+    public QueueNode<T> rightChild(int index){
+        QueueNode<T> node;
+        int idx = (2*index)+2;
+        try{
+            node = heap.get(idx);
+        } catch (Exception e){
+            return null;
+        }
+        return node;
     }
 
     public String toString(){
