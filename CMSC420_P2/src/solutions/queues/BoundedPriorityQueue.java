@@ -44,17 +44,26 @@ public class BoundedPriorityQueue<T> {
     public void insert(T element, double priority){
     	if(currSize == 0){
 			elements.add(new QueueNode<T>(element,priority));
-				currSize += 1;
+            currSize += 1;
+            maxPriority = priority;
 		} else {
-			for(int i = 0; i < elements.size(); i++){
-				if(priority < elements.get(i).priority){
-					elements.add(i,new QueueNode<T>(element,priority);
-					currSize+=1;
-						if(priority > maxPriority)
-							maxPriority = priority;
-				}
-			}
-		}
+            int oldSize = elements.size();
+            for (int i = 0; i < elements.size(); i++) {
+                if (priority < elements.get(i).priority) {
+                    elements.add(i, new QueueNode<T>(element, priority));
+                    currSize += 1;
+                    if (priority > maxPriority)
+                        maxPriority = priority;
+                    break;
+                }
+            }
+            if (elements.size() == oldSize) {
+                elements.add(new QueueNode<T>(element, priority));
+                currSize += 1;
+                if(priority > maxPriority)
+                    maxPriority = priority;
+            }
+        }
 	}
 
     public T dequeue(){
@@ -67,7 +76,7 @@ public class BoundedPriorityQueue<T> {
 			} else {
 				maxPriority = maxNode().priority;	
 			}
-			return min;
+			return min.key;
 		}
 		return null;
 	}

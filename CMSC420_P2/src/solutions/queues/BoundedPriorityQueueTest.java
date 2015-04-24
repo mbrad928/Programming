@@ -53,5 +53,11 @@ public class BoundedPriorityQueueTest {
         System.out.println(queue);
         queue.dequeue();
         System.out.println(queue);
+        queue.dequeue();
+        assertTrue(queue.size() == 1);
+        queue.dequeue();
+        assertTrue(queue.isEmpty());
+        System.out.println(queue);
+        assertNull(queue.dequeue());
     }
 }
