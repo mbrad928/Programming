@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4336e56-3cb4-4865-ab6e-9d3618343b10" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueue.java" afterPath="$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueue.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueueTest.java" afterPath="$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueueTest.java" />
     </list>
     <ignored path="CMSC420_P2.iws" />
@@ -25,23 +24,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BoundedPriorityQueue.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BoundedPriorityQueue.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="4.9296484">
+              <caret line="114" column="25" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoundedPriorityQueueTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoundedPriorityQueueTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueueTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72864324">
-              <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1893#1902#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -297,7 +297,7 @@
       <recent name="$PROJECT_DIR$/src/solutions/utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BoundedPriorityQueueTest.testDequeue">
+  <component name="RunManager" selected="JUnit.BoundedPriorityQueueTest.testClear">
     <configuration default="false" name="BoundedPriorityQueueTest.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -363,6 +363,32 @@
       <option name="PACKAGE_NAME" value="solutions.queues" />
       <option name="MAIN_CLASS_NAME" value="solutions.queues.BoundedPriorityQueueTest" />
       <option name="METHOD_NAME" value="testDequeue" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BoundedPriorityQueueTest.testClear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="solutions.queues.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CMSC420_P2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="solutions.queues" />
+      <option name="MAIN_CLASS_NAME" value="solutions.queues.BoundedPriorityQueueTest" />
+      <option name="METHOD_NAME" value="testClear" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
@@ -523,16 +549,18 @@
       <listeners />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testConstructor" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testEnqueue" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testDequeue" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testClear" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testDequeue" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testEnqueue" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testConstructor" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testClear" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testDequeue" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testEnqueue" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.BoundedPriorityQueueTest.testConstructor" />
       </list>
     </recent_temporary>
   </component>
@@ -569,7 +597,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20386904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3270142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3270142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -614,6 +642,7 @@
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1893#1902#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -672,6 +701,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1893#1902#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -730,6 +760,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1893#1902#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -941,14 +972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.690411">
@@ -959,11 +982,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueueTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72864324">
-          <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1893#1902#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.9296484">
+          <caret line="114" column="25" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
