@@ -10,15 +10,49 @@ import java.util.Collection;
  */
 public class KDTree {
 
+    TreeNode root;
+    int k;
+
     public KDTree(){
         this(2);
     }
 
     public KDTree(int k){
-
+        if (k <=0 ){
+            throw new RuntimeException("K must be > 0");
+        }
+        this.k = 2;
     }
 
     public void insert(KDPoint p){
+        //needs to work in any dimensionality > 0.
+        int level = 0; //can do level % k to find which coordinate to check
+        int dir = 0; //0 if we go left, 1 if we go right
+        TreeNode curr = root;
+        TreeNode prev = null;
+        while(curr != null) {
+            if (p.coords[level % k] < curr.point.coords[level % k]) {
+                //left subtree
+                prev = curr;
+                curr = curr.left;
+                dir = 0;
+            } else {
+                //right subtree
+                prev = curr;
+                curr = curr.right;
+                dir = 1;
+            }
+        }
+        if(prev == null){
+            this.root = new TreeNode(p);
+        } else {
+            curr = new TreeNode(p);
+            if(dir == 0){
+                prev.left = curr;
+            } else {
+                prev.right = curr;
+            }
+        }
 
     }
 
@@ -31,7 +65,7 @@ public class KDTree {
     }
 
     public KDPoint getRoot(){
-        return null;
+        return this.root.point;
     }
 
     public Collection<KDPoint> range(KDPoint p, double range){
@@ -52,5 +86,22 @@ public class KDTree {
 
     public boolean isEmpty(){
         return height() == -1;
+    }
+
+    public class TreeNode{
+        KDPoint point;
+        TreeNode left, right;
+
+        public TreeNode(){
+            this.point = new KDPoint(2);
+            this.left = null;
+            this.right = null;
+        }
+
+        public TreeNode(KDPoint p){
+            this.point = p;
+            this.left = null;
+            this.right = null;
+        }
     }
 }
