@@ -21,7 +21,7 @@ public class KDTree {
         if (k <=0 ){
             throw new RuntimeException("K must be > 0");
         }
-        this.k = 2;
+        this.k = k;
     }
 
     public void insert(KDPoint p){
@@ -42,6 +42,7 @@ public class KDTree {
                 curr = curr.right;
                 dir = 1;
             }
+            level++;
         }
         if(prev == null){
             this.root = new TreeNode(p);
