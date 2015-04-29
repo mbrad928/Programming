@@ -91,4 +91,69 @@ public class KDTreeTest {
         assertNull(tree.root.right.left.left);
     }
 
+    @Test
+    public void testLookup(){
+        KDTree tree = new KDTree(2);
+        assertFalse(tree.lookup( new KDPoint(1,2)));
+        tree.insert(new KDPoint(1, 2));
+        assertTrue(tree.lookup(new KDPoint(1, 2)));
+        tree.insert(new KDPoint(5, 4));
+        tree.insert(new KDPoint(3, 8));
+        tree.insert(new KDPoint(1, 5));
+        assertTrue(tree.lookup(new KDPoint(3, 8)));
+        assertTrue(tree.lookup(new KDPoint(1, 5)));
+        assertFalse(tree.lookup(new KDPoint(1,1)));
+    }
+
+    @Test
+    public void testHeight(){
+        KDTree tree = new KDTree(2);
+        assertTrue(tree.height() == -1);
+        assertTrue(tree.isEmpty());
+        tree.insert(new KDPoint(5, 5));
+        assertFalse(tree.isEmpty());
+        assertTrue(tree.height() == 0);
+        tree.insert(new KDPoint(4, 5));
+        assertTrue(tree.height() == 1);
+        tree.insert(new KDPoint(6, 5));
+        assertTrue(tree.height() == 1);
+        tree.insert(new KDPoint(6, 4));
+        assertTrue(tree.height() == 2);
+        tree.insert(new KDPoint(7, 4));
+        assertTrue(tree.height() == 3);
+    }
+
+    @Test
+    public void testDelete(){
+        KDTree tree = new KDTree(2);
+        KDPoint p = new KDPoint(1,2);
+        tree.insert(p);
+        tree.delete(p);
+        assertNull(tree.root);
+        assertTrue(tree.isEmpty());
+        tree.insert(p);
+        KDPoint p2 = new KDPoint(2,3);
+        tree.insert(p2);
+        tree.delete(p);
+        assertTrue(tree.root.point.coords[0] == 2);
+    }
+
+    @Test
+    public void testFindMin(){
+        KDTree tree = new KDTree(2);
+        KDPoint p = new KDPoint(1,1);
+        tree.insert(p);
+        TreeNode n = new TreeNode(p);
+        assertTrue(tree.findMin(n, 0).point.coords[0] == 1);
+        KDPoint p2 = new KDPoint(2,1);
+        tree.insert(p2);
+        n = new TreeNode(p);
+        TreeNode n2 = new TreeNode(p2);
+        assertTrue(tree.findMin(tree.root,0).point.coords[0]==1);
+        tree.insert(new KDPoint(0, 0));
+        assertTrue(tree.findMin(tree.root.left, 0).point.coords[0] == 0);
+        tree.insert(new KDPoint(0, -1));
+        assertTrue(tree.findMin(tree.root,1).point.coords[1]==-1);
+    }
+
 }

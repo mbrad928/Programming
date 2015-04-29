@@ -1,5 +1,7 @@
 package solutions.utils;
 
+import solutions.trees.TreeNode;
+
 /** <p><tt>KDPoint</tt> is a class that represents a k-dimensional point in Euclidean
  * space, where <emph>k</emph> is a positive integer. It provides methods for initialization,
  * copy construction, equality checks and distance calculations. The precision of <tt>KDPoint</tt>s
