@@ -136,6 +136,22 @@ public class KDTreeTest {
         tree.insert(p2);
         tree.delete(p);
         assertTrue(tree.root.point.coords[0] == 2);
+
+        tree = new KDTree(2);
+        KDPoint a = new KDPoint(1,2);
+        tree.insert(a);
+        KDPoint a2 = new KDPoint(-1,1);
+        tree.insert(a2);
+        KDPoint a3 = new KDPoint(0,0);
+        tree.insert(a3);
+        KDPoint a4 = new KDPoint(-2,-1);
+        tree.insert(a4);
+        tree.delete(a2);
+        assertTrue(tree.root.point.coords[0] == 1);
+        assertTrue(tree.root.left.point.coords[0] == -2);
+        assertNull(tree.root.left.left);
+        assertTrue(tree.root.left.right.point.coords[0] == 0);
+
     }
 
     @Test

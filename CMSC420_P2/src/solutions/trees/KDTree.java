@@ -111,8 +111,8 @@ public class KDTree {
                         else
                             prev.right = replacement;
                     }
-                    replacement.left = curr.left;
-                    replacement.right = curr.right;
+                    replacement.left = curr.right;
+                    replacement.right = curr.left;
 
                 } else if(prev == null){
                     this.root = null;
