@@ -166,6 +166,8 @@ public class KDTree {
     }
 
     public KDPoint getRoot(){
+        if(this.root == null)
+            return null;
         return this.root.point;
     }
 

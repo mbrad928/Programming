@@ -24,29 +24,27 @@ public class BoundedPriorityQueue<T> {
     }
 
     public void enqueue(T element, double priority){
-    	if(!containsPriority(priority)) {
-			if(currSize < maxSize){
-				//insert normally
-				insert(element,priority);
-			} else {
-				//check relation between priority and maxPriority
-				if(priority < maxPriority){
-					//remove current max and insert new
-					elements.remove(maxNode());
-					currSize -= 1;
-					maxPriority = maxNode().priority;
-					insert(element,priority);
-				}
-			}
-		}
+        if(currSize < maxSize){
+            //insert normally
+            insert(element,priority);
+        } else {
+            //check relation between priority and maxPriority
+            if(priority < maxPriority){
+                //remove current max and insert new
+                elements.remove(maxNode());
+                currSize -= 1;
+                maxPriority = maxNode().priority;
+                insert(element,priority);
+            }
+        }
     }
 
     public void insert(T element, double priority){
-    	if(currSize == 0){
-			elements.add(new QueueNode<T>(element,priority));
+        if(currSize == 0){
+            elements.add(new QueueNode<T>(element,priority));
             currSize += 1;
             maxPriority = priority;
-		} else {
+        } else {
             int oldSize = elements.size();
             for (int i = 0; i < elements.size(); i++) {
                 if (priority < elements.get(i).priority) {
@@ -64,22 +62,22 @@ public class BoundedPriorityQueue<T> {
                     maxPriority = priority;
             }
         }
-	}
+    }
 
     public T dequeue(){
-		if(currSize > 0){
-			QueueNode<T> min = elements.get(0);
-    		elements.remove(0);
-			currSize -= 1;
-			if(isEmpty()){
-				maxPriority = 0;
-			} else {
-				maxPriority = maxNode().priority;	
-			}
-			return min.key;
-		}
-		return null;
-	}
+        if(currSize > 0){
+            QueueNode<T> min = elements.get(0);
+            elements.remove(0);
+            currSize -= 1;
+            if(isEmpty()){
+                maxPriority = 0;
+            } else {
+                maxPriority = maxNode().priority;
+            }
+            return min.key;
+        }
+        return null;
+    }
 
     public T first(){
         if(currSize>0)
@@ -88,8 +86,8 @@ public class BoundedPriorityQueue<T> {
     }
 
     public T last(){
-        if(currSize > 0) 
-			return maxNode().key;
+        if(currSize > 0)
+            return maxNode().key;
         return null;
     }
 
@@ -117,16 +115,16 @@ public class BoundedPriorityQueue<T> {
 
     public QueueNode<T> maxNode(){
         if(currSize > 0){
-			QueueNode<T> max = elements.get(0);
-			double currP = 0;
-			for(QueueNode<T> node : elements){
-				if(node.priority > currP){
-					max = node;
-					currP = node.priority;
-				}
-			}
-			return max;
-		}
+            QueueNode<T> max = elements.get(0);
+            double currP = 0;
+            for(QueueNode<T> node : elements){
+                if(node.priority >= currP){
+                    max = node;
+                    currP = node.priority;
+                }
+            }
+            return max;
+        }
         return null;
     }
 

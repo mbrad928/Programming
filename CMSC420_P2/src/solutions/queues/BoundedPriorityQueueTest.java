@@ -42,6 +42,21 @@ public class BoundedPriorityQueueTest {
         queue.enqueue(7, 6);
         System.out.println(queue);
         assertTrue(queue.size()==5);
+        //test when duplicate priority for FIFO
+        queue = new BoundedPriorityQueue<>(5);
+        queue.enqueue(1,1);
+        queue.enqueue(2,1);
+        assertTrue(queue.first()==1);
+        queue.enqueue(3,0);
+        System.out.println(queue);
+        queue.enqueue(4,4);
+        queue.enqueue(4,5);
+        System.out.println(queue);
+        queue.enqueue(3,1);
+        System.out.println(queue);
+        queue.enqueue(4,1);
+        System.out.println(queue);
+        assertTrue(queue.last() == 4);
     }
 
     @Test
