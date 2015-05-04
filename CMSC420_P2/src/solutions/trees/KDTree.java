@@ -3,6 +3,7 @@ package solutions.trees;
 import solutions.queues.BoundedPriorityQueue;
 import solutions.utils.KDPoint;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -171,8 +172,27 @@ public class KDTree {
         return this.root.point;
     }
 
+    //minimums are coords of p - range and maximums are coods + range
     public Collection<KDPoint> range(KDPoint p, double range){
-        return  null;
+        ArrayList<KDPoint> points = new ArrayList<KDPoint>();
+        if(this.root == null)
+            return points;
+        KDPoint max = new KDPoint(p.coords.length);
+        for(int i = 0; i < p.coords.length; i++){
+            max.coords[i] = p.coords[i]+range;
+        }
+        KDPoint min = new KDPoint(p.coords.length);
+        for(int i = 0; i < p.coords.length; i++){
+            min.coords[i] = p.coords[i] - range;
+        }
+        this.root.rangeHelper(points,p,max,min,0, this.k);
+
+        return points;
+    }
+
+    public void rangeHelper(TreeNode curr, int level, ArrayList<KDPoint> points){
+
+
     }
 
     public KDPoint nearestNeighbor(KDPoint p){

@@ -3,6 +3,8 @@ package solutions.trees;
 import org.junit.Test;
 import solutions.utils.KDPoint;
 
+import java.util.Collection;
+
 import static org.junit.Assert.*;
 
 /**
@@ -170,6 +172,24 @@ public class KDTreeTest {
         assertTrue(tree.findMin(tree.root.left, 0).point.coords[0] == 0);
         tree.insert(new KDPoint(0, -1));
         assertTrue(tree.findMin(tree.root,1).point.coords[1]==-1);
+    }
+
+    @Test
+    public void testRange(){
+        KDTree tree = new KDTree(2);
+        tree.insert(new KDPoint(1,1));
+        tree.insert(new KDPoint(-1,-1));
+        tree.insert(new KDPoint(5,5));
+        tree.insert(new KDPoint(2,2));
+        Collection<KDPoint> coll = tree.range(new KDPoint(0,0),2);
+        assertTrue(coll.contains(new KDPoint(1,1)));
+        assertTrue(coll.contains(new KDPoint(-1,-1)));
+        assertTrue(coll.contains(new KDPoint(2,2)));
+        tree = new KDTree(2);
+        assertTrue(tree.range(new KDPoint(1,1),1).isEmpty());
+        tree.insert(new KDPoint(10,10));
+        assertTrue(tree.range(new KDPoint(1,1),1).isEmpty());
+
     }
 
 }
