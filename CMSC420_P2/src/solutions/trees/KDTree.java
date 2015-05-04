@@ -190,11 +190,6 @@ public class KDTree {
         return points;
     }
 
-    public void rangeHelper(TreeNode curr, int level, ArrayList<KDPoint> points){
-
-
-    }
-
     public KDPoint nearestNeighbor(KDPoint p){
         return null;
     }

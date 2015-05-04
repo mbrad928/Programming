@@ -8,12 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4336e56-3cb4-4865-ab6e-9d3618343b10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/solutions/trees/KDTree.java" afterPath="$PROJECT_DIR$/src/solutions/trees/KDTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/solutions/trees/KDTreeTest.java" afterPath="$PROJECT_DIR$/src/solutions/trees/KDTreeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/solutions/trees/TreeNode.java" afterPath="$PROJECT_DIR$/src/solutions/trees/TreeNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BWT/.idea/misc.xml" afterPath="$PROJECT_DIR$/../BWT/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BWT/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../BWT/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CMSC420_P2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +31,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.60673296">
       <split-first>
         <leaf>
-          <file leaf-file-name="KDTree.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="KDTree.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/solutions/trees/KDTree.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="178" column="26" selection-start-line="178" selection-start-column="26" selection-end-line="178" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.26666668">
+                  <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
                   <folding>
                     <element signature="e#274#275#0" expanded="true" />
                     <element signature="e#297#298#0" expanded="true" />
@@ -51,10 +45,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="KDTreeTest.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="KDTreeTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/solutions/trees/KDTreeTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.73333335">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="190" column="61" selection-start-line="190" selection-start-column="61" selection-end-line="190" selection-end-column="61" />
                   <folding />
                 </state>
@@ -120,8 +114,8 @@
         <option value="$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueue.java" />
         <option value="$PROJECT_DIR$/src/solutions/queues/BoundedPriorityQueueTest.java" />
         <option value="$PROJECT_DIR$/src/solutions/trees/TreeNode.java" />
-        <option value="$PROJECT_DIR$/src/solutions/trees/KDTree.java" />
         <option value="$PROJECT_DIR$/src/solutions/trees/KDTreeTest.java" />
+        <option value="$PROJECT_DIR$/src/solutions/trees/KDTree.java" />
       </list>
     </option>
   </component>
@@ -621,7 +615,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="15" width="1346" height="728" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -638,8 +632,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3110119" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19747235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07217262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19747235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -661,14 +655,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/solutions/trees/KDTree.java</url>
-          <line>187</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
@@ -1134,18 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/solutions/trees/KDTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="178" column="26" selection-start-line="178" selection-start-column="26" selection-end-line="178" selection-end-column="26" />
-          <folding>
-            <element signature="e#274#275#0" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#5736#5745#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35164836">
@@ -1156,9 +1130,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solutions/trees/KDTreeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73333335">
+        <state vertical-scroll-proportion="0.0">
           <caret line="190" column="61" selection-start-line="190" selection-start-column="61" selection-end-line="190" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/solutions/trees/KDTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26666668">
+          <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
+          <folding>
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#5736#5745#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
