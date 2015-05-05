@@ -191,7 +191,11 @@ public class KDTree {
     }
 
     public KDPoint nearestNeighbor(KDPoint p){
-        return null;
+        if(this.root == null || this.height() == 0 || !lookup(p))
+            return null;
+        else {
+            return null;//change to real return
+        }
     }
 
     public BoundedPriorityQueue<KDPoint> kNearestNeighbors(int k, KDPoint p){
