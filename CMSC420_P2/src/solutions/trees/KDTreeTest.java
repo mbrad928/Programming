@@ -189,7 +189,33 @@ public class KDTreeTest {
         assertTrue(tree.range(new KDPoint(1,1),1).isEmpty());
         tree.insert(new KDPoint(10,10));
         assertTrue(tree.range(new KDPoint(1,1),1).isEmpty());
+    }
 
+    @Test
+    public void testNearestNeighbor(){
+        KDTree tree = new KDTree(2);
+        assertNull(tree.nearestNeighbor(new KDPoint(0,0)));
+        KDPoint p = new KDPoint(0,0);
+        tree.insert(p);
+        assertNull(tree.nearestNeighbor(new KDPoint(0,0)));
+        assertNull(tree.nearestNeighbor(new KDPoint(1,1)));
+        KDPoint p2 = new KDPoint(-3,-3);
+        tree.insert(p2);
+        assertTrue(tree.nearestNeighbor(p).coords[0] == -3);
+        KDPoint p3 = new KDPoint(2,2);
+        tree.insert(p3);
+        assertTrue(tree.nearestNeighbor(p).coords[0] == 2);
+        KDPoint p4 = new KDPoint(-2,10);
+        tree.insert(p4);
+        assertTrue(tree.nearestNeighbor(p).coords[0] == 2);
+        KDPoint p5 = new KDPoint(1,1);
+        tree.insert(p5);
+        assertTrue(tree.nearestNeighbor(p).coords[0] == 1);
+        assertTrue(tree.nearestNeighbor(p5).coords[0] == 0);
+        assertTrue(tree.nearestNeighbor(p3).coords[0] == 1);
+        KDPoint p6 = new KDPoint(-3,9);
+        tree.insert(p6);
+        assertTrue(tree.nearestNeighbor(p4).coords[1] == 9);
     }
 
 }

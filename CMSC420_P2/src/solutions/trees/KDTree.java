@@ -13,6 +13,9 @@ public class KDTree {
 
     TreeNode root;
     int k;
+    //for nearestNeighbor
+    KDPoint guess;
+    double bestDist;
 
     public KDTree(){
         this(2);
@@ -191,12 +194,40 @@ public class KDTree {
     }
 
     public KDPoint nearestNeighbor(KDPoint p){
-        if(this.root == null || this.height() == 0 || !lookup(p))
+        if(this.root == null || !lookup(p))
             return null;
         else {
-            return null;//change to real return
+            int level = 0;
+            //query point is p
+            guess = null;
+            bestDist = 100000; //infinity
+            TreeNode curr = this.root;
+            guess = nearestNeighborHelper(p,this.root,level);
+            return guess;//change to real return
         }
     }
+
+    public KDPoint nearestNeighborHelper(KDPoint p, TreeNode curr, int level ){
+        if(curr != null){
+            if(curr.point.distance(p) < bestDist && !p.equals(curr.point)){
+                bestDist = curr.point.distance(p);
+                guess = curr.point;
+            }
+            if(p.coords[level % k] < curr.point.coords[level % k]){
+                guess = nearestNeighborHelper(p,curr.left,level+1);
+                if(Math.abs(curr.point.coords[level%k] - p.coords[level%k]) < bestDist) {
+                    guess = nearestNeighborHelper(p, curr.right, level + 1);
+                }
+            } else {
+                guess = nearestNeighborHelper(p,curr.right,level+1);
+                if(Math.abs(curr.point.coords[level%k] - p.coords[level%k]) < bestDist) {
+                    guess = nearestNeighborHelper(p, curr.left, level + 1);
+                }
+            }
+        }
+        return guess;//change to real return
+    }
+
 
     public BoundedPriorityQueue<KDPoint> kNearestNeighbors(int k, KDPoint p){
         return null;
