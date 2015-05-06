@@ -1,6 +1,7 @@
 package solutions.trees;
 
 import org.junit.Test;
+import solutions.queues.BoundedPriorityQueue;
 import solutions.utils.KDPoint;
 
 import java.util.Collection;
@@ -262,6 +263,40 @@ public class KDTreeTest {
         tree2.insert(a4);
         assertTrue(tree2.nearestNeighbor(a1).equals(a4));
 
+    }
+
+    @Test
+    public void testKNN(){
+        KDTree tree = new KDTree(2);
+        KDPoint p1 = new KDPoint(0,0);
+        KDPoint p2 = new KDPoint(1,1);
+        KDPoint p3 = new KDPoint(2,2);
+        KDPoint p4 = new KDPoint(3,3);
+        tree.insert(p1);
+        tree.insert(p2);
+        tree.insert(p3);
+        tree.insert(p4);
+        BoundedPriorityQueue<KDPoint> queue = tree.kNearestNeighbors(3,p1);
+        assertTrue(queue.first().equals(p2));
+        assertTrue(queue.last().equals(p4));
+        int update = 0;
+        try{
+            queue = tree.kNearestNeighbors(0,p2);
+        } catch (Exception e){
+            update = 1;
+        }
+        assertTrue(update == 1);
+
+        tree = new KDTree(1);
+        KDPoint a1 = new KDPoint(0.0);
+        KDPoint a2 = new KDPoint(1.0);
+        KDPoint a3 = new KDPoint(2.0);
+        tree.insert(a1);
+        tree.insert(a2);
+        tree.insert(a3);
+        queue = tree.kNearestNeighbors(2,a2);
+        assertTrue(queue.first().equals(a1));
+        assertTrue(queue.last().equals(a3));
     }
 
 }

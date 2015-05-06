@@ -2,6 +2,7 @@ package solutions.trees;
 
 import solutions.queues.BoundedPriorityQueue;
 import solutions.utils.KDPoint;
+import solutions.utils.KNNComparator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,6 +17,8 @@ public class KDTree {
     //for nearestNeighbor
     KDPoint guess;
     double bestDist;
+    int dir;
+    BoundedPriorityQueue<KDPoint> queue;
 
     public KDTree(){
         this(2);
@@ -194,31 +197,36 @@ public class KDTree {
     }
 
     public KDPoint nearestNeighbor(KDPoint p){
-        if(this.root == null || !lookup(p))
+        if(this.root == null || !lookup(p) || (this.height()==0 && this.root.point.equals(p)))
             return null;
         else {
             //query point is p
+            KNNComparator comp = new KNNComparator(p);
             guess = null;
             bestDist = Double.POSITIVE_INFINITY; //infinity
+            dir = 0; //left is 0, right is 1
             nearestNeighborHelper(p,this.root,0);
-            return guess;//change to real return
+            return guess;
         }
     }
-
-    public void nearestNeighborHelper(KDPoint p, TreeNode curr, int level ){
-        if(curr != null){
-            if(curr.point.distance(p) < bestDist && !p.equals(curr.point)){
+    // TODO: fix nearestNeighbor
+    public void nearestNeighborHelper(KDPoint p, TreeNode curr, int level ) {
+        if (curr != null) {
+            if (curr.point.distance(p) < bestDist && !p.equals(curr.point)) {
                 bestDist = curr.point.distance(p);
                 guess = curr.point;
             }
-            if(p.coords[level % k] < curr.point.coords[level % k]){
-                nearestNeighborHelper(p,curr.left,level+1);
-                if(Math.abs(curr.point.coords[level%k] - p.coords[level%k]) < bestDist) {
-                    nearestNeighborHelper(p, curr.right, level + 1);
-                }
+            if (p.coords[level % k] < curr.point.coords[level % k]) {
+                nearestNeighborHelper(p, curr.left, level + 1);
+                dir = 0;
             } else {
-                nearestNeighborHelper(p,curr.right,level+1);
-                if(Math.abs(curr.point.coords[level%k] - p.coords[level%k]) < bestDist) {
+                nearestNeighborHelper(p, curr.right, level + 1);
+                dir = 1;
+            }
+            if(Math.abs(curr.point.coords[level%k] - p.coords[level%k]) < bestDist) {
+                if(dir == 0){
+                    nearestNeighborHelper(p, curr.right, level + 1);
+                } else {
                     nearestNeighborHelper(p, curr.left, level + 1);
                 }
             }
@@ -226,8 +234,43 @@ public class KDTree {
     }
 
 
-    public BoundedPriorityQueue<KDPoint> kNearestNeighbors(int k, KDPoint p){
-        return null;
+    public BoundedPriorityQueue<KDPoint> kNearestNeighbors(int num, KDPoint p){
+        if(num <= 0)
+            throw new RuntimeException("K must be > 0");
+        queue = new BoundedPriorityQueue<KDPoint>(num);
+        if(this.height() == 0 && this.root.point.equals(p))
+            return queue;
+        else {
+            bestDist = Double.POSITIVE_INFINITY; //infinity
+            dir = 0; //left is 0, right is 1
+            kNearestNeighborsHelper(num, p, this.root, 0);
+            return queue;
+        }
+    }
+
+    public void kNearestNeighborsHelper(int num, KDPoint p, TreeNode curr, int level){
+        if (curr != null) {
+            if(!curr.point.equals(p))
+                queue.insert(curr.point,curr.point.distance(p));
+            if (curr.point.distance(p) < bestDist && !p.equals(curr.point)) {
+                bestDist = curr.point.distance(p);
+
+            }
+            if (p.coords[level % k] < curr.point.coords[level % k]) {
+                kNearestNeighborsHelper(num, p, curr.left, level + 1);
+                dir = 0;
+            } else {
+                kNearestNeighborsHelper(num,p,curr.right,level+1);
+                dir = 1;
+            }
+            if(Math.abs(queue.last().coords[level%k] - p.coords[level%k]) < bestDist || queue.size() < num) {
+                if(dir == 0){
+                    kNearestNeighborsHelper(num, p, curr.right, level + 1);
+                } else {
+                    kNearestNeighborsHelper(num, p, curr.left, level + 1);
+                }
+            }
+        }
     }
 
     public int height(){
