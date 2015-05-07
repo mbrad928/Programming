@@ -199,7 +199,6 @@ public class KDTreeTest {
         KDPoint p = new KDPoint(0,0);
         tree.insert(p);
         assertNull(tree.nearestNeighbor(new KDPoint(0, 0)));
-        assertNull(tree.nearestNeighbor(new KDPoint(1, 1)));
         KDPoint p2 = new KDPoint(-3,-3);
         tree.insert(p2);
         assertTrue(tree.nearestNeighbor(p).coords[0] == -3);
